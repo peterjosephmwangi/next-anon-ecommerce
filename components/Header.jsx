@@ -17,7 +17,6 @@ import { BsBagCheck } from "react-icons/bs";
 
 import { images } from "../public/assets/index";
 import { headerCatDropdown, menuCategory } from "../constants/index";
-import ClientOnly from "./ClientOnly";
 
 const Header = ({
   isOpen,
@@ -71,15 +70,13 @@ const Header = ({
 
           <div className="header-search-container">
             <div className="searchRelative">
-              <ClientOnly>
-                <input
-                  type="search"
-                  name="search"
-                  className="search-field"
-                  placeholder="Enter your product name..."
-                  onChange={(e) => setSearch(e.target.value)}
-                />
-              </ClientOnly>
+              <input
+                type="search"
+                name="search"
+                className="search-field"
+                placeholder="Enter your product name..."
+                onChange={(e) => setSearch(e.target.value)}
+              />
 
               {search.length > 0 ? (
                 <div className="searchResul">
