@@ -363,7 +363,6 @@ const Header = ({
           {menuCategory.map((item, index) => (
             <li className="menu-category" key={index}>
               <button
-                className="accordion-menu"
                 className={`accordion-menu ${
                   item?.id === activeItem ? "active" : ""
                 }`}

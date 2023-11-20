@@ -52,11 +52,11 @@ export default function BlogPage({ myblog }) {
               {myblog?.title}
             </Title>
             <p
-              style={{ marginTop: "1rem" }}
               style={{
                 lineHeight: "1.6",
                 letterSpacing: "0.4px",
                 color: "gray",
+                marginTop: "1rem",
               }}
             >
               {myblog?.description}

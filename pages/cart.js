@@ -96,7 +96,7 @@ export default function CartPage() {
       setProducts([]);
       return router.push("/");
     }
-  }, [cartProducts]);
+  }, [cartProducts, router]);
   useEffect(() => {
     if (typeof window === "undefined") {
       return;
