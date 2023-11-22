@@ -169,10 +169,7 @@ export default function CartPage() {
                 You are being redirected home page.
               </p>
             </Box>
-            <ConfettiExplosion
-              {...confettiConfig}
-              style={{ margin: "10px auto" }}
-            />
+            <ConfettiExplosion {...confettiConfig} />
           </ColumnsWrapper>
         </Center>
       </>
