@@ -11,7 +11,6 @@ import Input from "@/components/Input";
 import Image from "next/image";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { toast } from "react-toastify";
-import { useRouter } from "next/navigation";
 
 const ColumnsWrapper = styled.div`
   display: grid;
@@ -84,7 +83,6 @@ export default function CartPage() {
   const [streetAddress, setStreetAddress] = useState("");
   const [country, setCountry] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
-  const router = useRouter();
 
   useEffect(() => {
     if (cartProducts.length > 0) {
@@ -94,9 +92,8 @@ export default function CartPage() {
     } else {
       toast.error("Your cart is empty!", { autoClose: 3000 });
       setProducts([]);
-      return router.push("/");
     }
-  }, [cartProducts, router]);
+  }, [cartProducts]);
   useEffect(() => {
     if (typeof window === "undefined") {
       return;
