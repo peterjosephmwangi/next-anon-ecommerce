@@ -10,7 +10,9 @@ import Table from "@/components/Table";
 import Input from "@/components/Input";
 import Image from "next/image";
 import { useSession, signIn, signOut } from "next-auth/react";
+import ConfettiExplosion from "react-confetti-explosion";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const ColumnsWrapper = styled.div`
   display: grid;
@@ -83,6 +85,14 @@ export default function CartPage() {
   const [streetAddress, setStreetAddress] = useState("");
   const [country, setCountry] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
+  const router = useRouter();
+
+  const confettiConfig = {
+    force: 0.8,
+    duration: 3000,
+    particleCount: 250,
+    width: 1600,
+  };
 
   useEffect(() => {
     if (cartProducts.length > 0) {
@@ -101,8 +111,11 @@ export default function CartPage() {
     if (window?.location.href.includes("success")) {
       setIsSuccess(true);
       clearCart();
+      setTimeout(() => {
+        router.push("/");
+      }, 5000);
     }
-  }, []);
+  }, [router]);
   function moreOfThisProduct(id) {
     addProduct(id);
   }
@@ -151,9 +164,12 @@ export default function CartPage() {
         <Center>
           <ColumnsWrapper>
             <Box>
-              <h1>Thanks for your order!</h1>
-              <p>We will email you when your order will be sent.</p>
+              <h1>Payment successful!</h1>
+              <p style={{ color: "green" }}>
+                You are being redirected home page.
+              </p>
             </Box>
+            <ConfettiExplosion {...confettiConfig} />
           </ColumnsWrapper>
         </Center>
       </>

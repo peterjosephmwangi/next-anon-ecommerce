@@ -44,6 +44,7 @@ const StyledDivCenter = styled.div`
 
 export default function ProductPage({ product }) {
   const { addProduct } = useContext(CartContext);
+
   return (
     <>
       <Header />
